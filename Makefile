@@ -23,13 +23,13 @@ down:
 
 build: setup
 	echo "🚀 Démarrage (ou rebuild) des conteneurs..."
-	docker compose -f $(COMPOSE_FILE) up --build $(if $(filter 1,$(D)),-d,)
+	docker compose --env-file ./srcs/.env -f $(COMPOSE_FILE) up --build $(if $(filter 1,$(D)),-d,)
 
 clean:
 	@echo "🧹 Nettoyage complet..."
 	@docker compose -f $(COMPOSE_FILE) down -v
-	@sudo rm -rf /home/$(USER)/data/$(DB_DATA)/*
-	@sudo rm -rf /home/$(USER)/data/$(WP_DATA)/*
+	@sudo rm -rf $(DB_DATA)/*
+	@sudo rm -rf $(WP_DATA)/*
 	@docker system prune -af
 
 re: init down up

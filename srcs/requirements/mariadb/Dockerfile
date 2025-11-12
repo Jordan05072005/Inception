@@ -1,5 +1,5 @@
 # srcs/requirements/mariadb/Dockerfile
-FROM debian:bullseye
+FROM debian:11.9
 
 # Installer MariaDB
 RUN apt update && apt install -y mariadb-server mariadb-client \

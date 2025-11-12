@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:11.9
 
 RUN apt update && apt install -y \
     php7.4-fpm php7.4-mysql php7.4-cli php7.4-curl php7.4-xml php7.4-mbstring \
